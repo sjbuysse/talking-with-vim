@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Getting started with Vim (& why it’s awesome for developers)</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/ordina.css" id="theme">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/tomorrow.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <script src="js/head.min.js"></script>
+    <!--Add support for earlier versions of Internet Explorer -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>Vim</h1>
+            <h2>& why it’s awesome for developers</h2>
+            <!--<h3>The start of all our presentations</h3>-->
+            <img src="img/jworks-logo.png" style="vertical-align: bottom;" width="22.5%"/>
+            <aside class="notes">
+                Goeienavond, Ik ben Simon Buysse, frontend developer bij Ordina en
+                zoals de titel zegt, ga ik vanavond even kort aantonen waarom Vim echt de max is voor developers.
+            </aside>
+        </section>
+
+        <section>
+            <h2>Hi, I'm Simon.</h2>
+            <p>
+                Frontend developer
+                <br/> Ordina Belgium
+                <br/> https://github.com/sjbuysse
+            </p>
+        </section>
+
+        <section>
+            <img src="img/vim-logo-png-transparent.png" style="vertical-align: bottom;" width="22.5%"/>
+            <aside class="notes">
+                <strong> Wie van jullie heeft er al eens gehoord van Vim? En wie gebruikt er Vim om te
+                    developen?</strong>
+                Ah oke toch een paar fans, dat zie ik graag. Eerst even kort, voor degenen dat het nog niet zo goed
+                kennen:
+                <br/>
+                <ul>
+                    <li>
+                        <strong>wat is Vim?</strong> Vim is een text editor, net zoals word of notepad, maar in Vim
+                        gebruik je geen muis
+                        om te navigeren
+                    </li>
+                    <li>
+                        <strong>Hoe ga je dan wel te werk in Vim?</strong> In Vim typ je commando’s om deze acties uit
+                        te voeren. Je
+                        gebruikt dus je toetsenbord om aan te geven dat je een woord wil verwijderen of een zin wil
+                        kopieren.
+                    </li>
+                    <li>
+                        <b>Archaisch en oldskool</b>, maar ik ga jullie tonen dat zeer efficient kan zijn
+                    </li>
+                </ul>
+
+            </aside>
+        </section>
+
+        <section>
+            <ul>
+                <li>
+                    IntelliJ or Webstorm: IdeaVim
+                </li>
+                <li>
+                    Visual Studio Code: VSCodeVim
+                </li>
+                <li>
+                    ...
+                </li>
+            </ul>
+            <aside class="notes">
+                Origineel wordt Vim in de terminal gebruikt. Maar dit is misschien een stapke te ver om onze software
+                echt in een terminal
+                te gaan ontwikkelen. Daarom wil ik eerst en vooral al even meegeven dat je niet je IDE moet opgeven om
+                Vim te gebruiken.
+                Ik heb ook zeer graag autocomplete en refactor tools tot mijn beschikking.
+                Gelukkig zijn er voor de meeste editors vim plugins of sommige editors hebben zelf een soort vim mode
+                ingebakken.
+            </aside>
+        </section>
+
+        <section>
+            <h2>Talking with Vim</h2>
+            <img src="img/talking-with-vim.png" style="vertical-align: bottom;" width="22.5%"/>
+            <aside class="notes">
+                Veel mensen worden afgeschrikt om Vim te leren, door het feit dat je dan veel commando's moeten
+                vanbuiten leren.
+                Maar eigenlijk valt dat wel mee en men heeft geprobeerd zoveel mogelijk een mnemonisch systeem achter de
+                commando's te steken.
+                Dat is een moeilijk woord dat wil zeggen dat de commando's zeer goed op mensentaal lijken.
+                Voor mij voelt het aan alsof ik gewoon met Vim kan spreken en ik moet dus eigenlijk niets vanbuiten
+                leren.
+            </aside>
+        </section>
+        <section>
+            <div class="two-columns">
+                <div>
+                    <h3>command</h3>
+                    <ul>
+                        <li>
+                            <b>d</b> - delete
+                        </li>
+                        <li>
+                            <b>c</b> - change
+                        </li>
+                        <li>
+                            <b>y</b> - yank (copy)
+                        </li>
+                        <li>
+                            <b>v</b> - visually select
+                        </li>
+                        <li>
+                            <b>p</b> - paste
+                        </li>
+                        <li>
+                            <b>i</b> - insert
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>motion</h3>
+                    <ul>
+                        <li>
+                            <b>b</b> - begin (of word )
+                        </li>
+                        <li>
+                            <b>e</b> - end (of word)
+                        </li>
+                        <li>
+                            <b>w</b> - (next) word
+                        </li>
+                        <li>
+                            <b>$</b> - end of line
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="notes">
+                Hier heb je een aantal basis commando's van vim.
+                <ul>
+                    <li>Om een actie uit te voeren in vim combineer je een commando met een motion.</li>
+                    <li> Deze commando’s en motions zijn zoals je ziet super intuïtief en als je een beetje engels kent
+                        is het
+                        echt niet moeilijk om te onthouden.
+                    </li>
+                    <li><strong>Stel dat ik een woord wil wijzigen, </strong> dan gebruik ik het commando `c` van
+                        change,
+                        en ik moet ook meegeven naar waar deze wijzig beweging moet uitgevoerd worden
+                        en daarvoor kan ik dus `e` meegeven en dan krijgen we `change end of word`, <b>gemakkelijk om te
+                            onthouden he?</b>
+                    </li>
+                    <li> Stel dat ik alles wil verwijderen van mijn cursor tot en met het begin van dit woord,
+                        `db`delete tot
+                        begin.
+                    </li>
+                    <li><b>Quiz vraagske. Wat als ik van mijn cursor alles wil kopieren tot het volgende woord,</b> Wat
+                        typ
+                        ik dan?
+                    </li>
+                    <li> Ik zal dit even demonsteren he. Stel dat ik bijvoorbeeld LekkerBroodje wil kopieren.
+                        Hoe zou ik dat doen met de commando's dat we nu kennen?
+                    </li>
+                    <li>
+                        Ik moet navigeren naar het begin van het woord dat ik wil en ik typ `yw`
+                        Ik kan dit nu pasten waar ik wil met `p`
+                    </li>
+                    <li>
+                        Stel dat ik nu het woord lekker hier wil verwijderen, hoe kan ik dit doen?
+                    </li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <div class="two-columns">
+                <div>
+                    <h3>command</h3>
+                    <ul>
+                        <li>
+                            <b>d</b> - delete
+                        </li>
+                        <li>
+                            <b>c</b> - change
+                        </li>
+                        <li>
+                            <b>y</b> - yank (copy)
+                        </li>
+                        <li>
+                            <b>v</b> - visually select
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Text Object</h3>
+                    <ul>
+                        <li>
+                            <b>iw</b> - inside word
+                        </li>
+                        <li>
+                            <b>i{</b> - inside {
+                        </li>
+                        <li>
+                            <b>it</b> - inside HMTL/XML tag!!
+                        </li>
+                        <li>
+                            <b>tz</b> - (un)til z (on this line)
+                        </li>
+                        <li>
+                            <b>/cyclops</b> - until cyclops
+                        </li>
+                        <li>
+                            <b>a[</b> - ???
+                        </li>
+                        <li>
+                            <b>at</b> - ???
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="notes">
+                Nu dat was de echte basis. Daar kan je nog niet zoveel met. Maar nu ga het echte interessante komen!
+                <ul>
+                    <li>
+                        En dat is wanneer we *motion* vervangen door een *text object*.
+                    </li>
+                    <li>
+                        Een text object is een zeer flexibele mannier om een stukje tekst te definiëren.
+                    </li>
+                    <li>
+                        Zo kan ik bijvoorbeeld `iw` typen, dat staat voor /inside word/ en dit
+                        <b>definieert</b> het woord onder mijn cursor staat.
+                    </li>
+                    <li>
+                        Dus het maakt niet uit waar in het woord ik sta, ik kan in het midden staat, op het einde, ..
+                    </li>
+                    <li>
+                        Nu kunnen we iets doen met dat woord door dit te combineren met een commando zoals daarnet
+                    </li>
+                    <li>
+                        Dat wil dus zeggen als ik `yiw`typ, dus /yank inside word/, dat ik het woord kopieer onder mijn
+                        cursor,
+                        zonder dat het uitmaakt waar de cursor in het woord staat. Dus dit woord kan ik nu pasten ergens
+                        anders.
+                    </li>
+                    <li>De kracht hiervan is dat je een text object op zeer veel verchillende mannieren kan definieren
+                    </li>
+                    <li><strong>voorbeelden:</strong></li>
+                    <li>Stel dat ik al deze logica ipv OnInit in een AfterViewInit hook wil steken</li>
+                    <li>Hier bij het aanroepen van de functie maakLekkerBroodje zou ik bijvoorbeeld geen hesp willen
+                        eten
+                        maar wat salade
+                    </li>
+                    <li>Stel dat ik in plaats van een array een object wil meegeven</li>
+                    <li>Stel dat ik geen opties wil meegeven</li>
+                    <li>We kunnen dit ook in HTML gebruiken, stel dat ik span wil verwijderen</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <h2>Plugin - Vim Surround</h2>
+            <div class="two-columns">
+                <div>
+                    <h3>command</h3>
+                    <ul>
+                        <li>
+                            <b>ds</b> - delete surroundings
+                        </li>
+                        <li>
+                            <b>cs</b> - change surroundings
+                        </li>
+                        <li>
+                            <b>ys</b> - add surroundings (jup, that's a weird one)
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Example</h3>
+                    <ul>
+                        <li>
+                            <b>ds{</b> - delete surrounding {
+                        </li>
+                        <li>
+                            <b>cs"'</b> - change surrounding " to '
+                        </li>
+                        <li>
+                            <b>cst</b> - change surrounding HTML/XML tag
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="notes">
+                Vim is uitbreidbaar met plugins, er zijn veel interessante plugins maar ik ga er eentje bespreken die
+                zeker de moeite is voor een developer, namelijk *surround*.
+                <ul>
+                    <li>
+                        Met deze plugin kun je zowat alles doen met betrekking tot de omringende symbolen.
+                    </li>
+                    <li>
+                        Stel dat je bijvoorbeeld dat je double quotes hier wil verwijderen. Dan doe je dit weer met een
+                        commando dat zeer veel op spreektaal lijkt. Je doet dit namelijk met `ds”`,
+                        waarbij `ds` dus voor /delete surrounding/ staat. Gemakkelijk toch ofniet?
+                    </li>
+                    <li>
+                        We kunnen de symbolen ook wijzigen, stel bijvoorbeeld dat we deze double quotes wil omzetten
+                        naar single
+                        quotes, dan gebruiken we `cs”’`. We spreken dus weer tegen Vim, we zeggen change surrounding “
+                        to ‘.
+                    </li>
+                    <li>
+                        Dit werkt ook in HTML! Stel dat je deze inhoud vetgedrukt wil. Nu gebruik je `cst*strong*`.
+                        Dat is toch fantastisch. We kunnen de tag ook verwijderen met /delete surrounding tag/, dus
+                        `dst`.
+                    </li>
+                </ul>
+            </aside>
+        </section>
+        <!-- **********
+        DO NOT REMOVE
+    ********** -->
+        <section style="text-align: left;">
+            <h2>Thanks for watching!</h2>
+            <aside class="notes">
+                Bedankt voor jullie aandacht.
+                Ik hoop dat sommigen van jullie getriggerd zijn om het eens een kans te geven. Ik heb nog vele dingen
+                niet verteld,
+                maar je mag mij altijd contacteren als je eens een Vim vraagje hebt, ik vind het echt leuk om ermee te
+                spelen.
+            </aside>
+        </section>
+
+        <section style="text-align: left;" data-background="img/jworks-wallpaper-3.jpg"></section>
+    </div>
+</div>
+<script src="js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        transition: 'convex',
+        dependencies: [
+            // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+            {
+                src: 'lib/js/classList.js',
+                condition: function () {
+                    return !document.body.classList;
+                }
+            },
+            // Interpret Markdown in <section> elements
+            {
+                src: 'plugin/markdown/marked.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/markdown/markdown.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            // Syntax highlight for <code> elements
+            {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            // Zoom in and out with Alt+click
+            {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            },
+            // Speaker notes
+            {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }
+        ]
+    });
+</script>
+</body>
+
+</html>
